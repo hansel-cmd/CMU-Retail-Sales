@@ -11,8 +11,8 @@
   DTS:LocaleID="13321"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="205"
-  DTS:VersionGUID="{D9793B52-931D-4D2B-801C-0FC1D4B36B04}">
+  DTS:VersionBuild="218"
+  DTS:VersionGUID="{5006E010-0061-494E-A9B8-63F47359321C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -293,6 +293,99 @@
               DTS:TextQualified="True"
               DTS:ObjectName="PromotionCost"
               DTS:DTSID="{BEED6B48-FB6B-49E2-8F3F-519783CECC38}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Sales Transaction File]"
+      DTS:CreationName="FLATFILE"
+      DTS:Description="Sales Transaction File"
+      DTS:DTSID="{A2C7885D-BE61-4B0D-939B-AD8267183193}"
+      DTS:ObjectName="Sales Transaction File">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="13321"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="D:\Lab 1 Folder\Data_SalesTransactions.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CalendarDateChar"
+              DTS:DTSID="{92466925-74F2-4EEA-B79B-4D450A4C8044}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SKU"
+              DTS:DTSID="{7AA57514-49B8-4F62-8DDA-A9B123D5F74A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PromotionName"
+              DTS:DTSID="{7D505507-5CC2-4417-B4BF-16B9D50CB5F2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StoreName"
+              DTS:DTSID="{606827DA-FD23-407A-8487-831616F1E7A1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DollarSales"
+              DTS:DTSID="{E341AB52-CF51-4984-9558-E9BE827D38DB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="UnitSales"
+              DTS:DTSID="{632A5DC1-9BBB-420E-A427-8CF242237A92}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DollarCost"
+              DTS:DTSID="{AA7E0B56-8B9E-470D-8A31-D670329EA8D8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DollarGrossProfit"
+              DTS:DTSID="{B461CBE1-F9D8-4658-94F8-6E0BA3237E15}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -3498,7 +3591,2164 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <pipeline
-          version="1" />
+          version="1">
+          <components>
+            <component
+              refId="Package\Load SalesTransaction Fact DF\Date Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Date Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimDate]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimDate]) [refTable]
+where [refTable].[CalendarDateChar] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="DateKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CalendarDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CalendarDateChar" dataType="DT_WSTR" length="20" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MonthNumber" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MonthName" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MonthShortName" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MonthYearName" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MonthYearShortName" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MonthYearSort" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Quarter" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Year" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="YearQuarter" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DayOfWeek" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DayOfWeekName" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DayOfWeekShortName" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DayOfMonth" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="LastDayOfMonthInd" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DayOfYear" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Load SalesTransaction Fact DF\Derived Column.Outputs[Derived Column Output].Columns[dc.CalendarDateChar]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load SalesTransaction Fact DF\Date Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[HANSEL.CMURetailSales]"
+                  connectionManagerRefId="Package.ConnectionManagers[HANSEL.CMURetailSales]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load SalesTransaction Fact DF\Date Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Date Lookup.Inputs[Lookup Input].Columns[dc.CalendarDateChar]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="dc.CalendarDateChar"
+                      lineageId="Package\Load SalesTransaction Fact DF\Derived Column.Outputs[Derived Column Output].Columns[dc.CalendarDateChar]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">CalendarDateChar</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load SalesTransaction Fact DF\Date Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Load SalesTransaction Fact DF\Date Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Date Lookup.Outputs[Lookup Match Output].Columns[DateKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Load SalesTransaction Fact DF\Date Lookup.Outputs[Lookup Match Output].Columns[DateKey]"
+                      name="DateKey"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">DateKey</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load SalesTransaction Fact DF\Date Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Load SalesTransaction Fact DF\Date Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load SalesTransaction Fact DF\Date Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Load SalesTransaction Fact DF\Date Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Date Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load SalesTransaction Fact DF\Date Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Date Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load SalesTransaction Fact DF\Date Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load SalesTransaction Fact DF\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load SalesTransaction Fact DF\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Derived Column.Inputs[Derived Column Input].Columns[SKU]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SKU"
+                      lineageId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[SKU]" />
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Derived Column.Inputs[Derived Column Input].Columns[CalendarDateChar]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CalendarDateChar"
+                      lineageId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDateChar]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load SalesTransaction Fact DF\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Load SalesTransaction Fact DF\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Derived Column.Outputs[Derived Column Output].Columns[dc.SKU]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Load SalesTransaction Fact DF\Derived Column.Outputs[Derived Column Output].Columns[dc.SKU]"
+                      name="dc.SKU"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,50,1252)([TRIM]([REPLACE](#{Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[SKU]},"\"","")))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,50,1252)(TRIM(REPLACE(SKU,"\"","")))</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Derived Column.Outputs[Derived Column Output].Columns[dc.CalendarDateChar]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Load SalesTransaction Fact DF\Derived Column.Outputs[Derived Column Output].Columns[dc.CalendarDateChar]"
+                      name="dc.CalendarDateChar"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TRIM]([REPLACE](#{Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDateChar]},"\"",""))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TRIM(REPLACE(CalendarDateChar,"\"",""))</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load SalesTransaction Fact DF\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Load SalesTransaction Fact DF\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load SalesTransaction Fact DF\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load SalesTransaction Fact DF\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load SalesTransaction Fact DF\Flat File Source"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="13321"
+              name="Flat File Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load SalesTransaction Fact DF\Flat File Source.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Sales Transaction File]"
+                  connectionManagerRefId="Package.ConnectionManagers[Sales Transaction File]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDateChar]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CalendarDateChar]"
+                      length="50"
+                      lineageId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDateChar]"
+                      name="CalendarDateChar"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[SKU]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SKU]"
+                      length="50"
+                      lineageId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[SKU]"
+                      name="SKU"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[PromotionName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[PromotionName]"
+                      length="50"
+                      lineageId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[PromotionName]"
+                      name="PromotionName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[StoreName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[StoreName]"
+                      length="50"
+                      lineageId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[StoreName]"
+                      name="StoreName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[DollarSales]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[DollarSales]"
+                      length="50"
+                      lineageId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[DollarSales]"
+                      name="DollarSales"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[UnitSales]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[UnitSales]"
+                      length="50"
+                      lineageId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[UnitSales]"
+                      name="UnitSales"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[DollarCost]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[DollarCost]"
+                      length="50"
+                      lineageId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[DollarCost]"
+                      name="DollarCost"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[DollarGrossProfit]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[DollarGrossProfit]"
+                      length="50"
+                      lineageId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[DollarGrossProfit]"
+                      name="DollarGrossProfit"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CalendarDateChar]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CalendarDateChar" />
+                    <externalMetadataColumn
+                      refId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SKU]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SKU" />
+                    <externalMetadataColumn
+                      refId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[PromotionName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PromotionName" />
+                    <externalMetadataColumn
+                      refId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[StoreName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="StoreName" />
+                    <externalMetadataColumn
+                      refId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[DollarSales]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DollarSales" />
+                    <externalMetadataColumn
+                      refId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[UnitSales]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="UnitSales" />
+                    <externalMetadataColumn
+                      refId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[DollarCost]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DollarCost" />
+                    <externalMetadataColumn
+                      refId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[DollarGrossProfit]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DollarGrossProfit" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load SalesTransaction Fact DF\Multicast"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+              name="Multicast">
+              <inputs>
+                <input
+                  refId="Package\Load SalesTransaction Fact DF\Multicast.Inputs[Multicast Input 1]"
+                  name="Multicast Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load SalesTransaction Fact DF\Multicast.Outputs[Multicast Output 1]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 1"
+                  synchronousInputId="Package\Load SalesTransaction Fact DF\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load SalesTransaction Fact DF\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[FactSalesTransaction]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load SalesTransaction Fact DF\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[HANSEL.CMURetailSales]"
+                  connectionManagerRefId="Package.ConnectionManagers[HANSEL.CMURetailSales]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load SalesTransaction Fact DF\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DollarSales]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DollarSales"
+                      externalMetadataColumnId="Package\Load SalesTransaction Fact DF\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DollarSales]"
+                      lineageId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[DollarSales]" />
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UnitSales]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="UnitSales"
+                      externalMetadataColumnId="Package\Load SalesTransaction Fact DF\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UnitSales]"
+                      lineageId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[UnitSales]" />
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DollarCost]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DollarCost"
+                      externalMetadataColumnId="Package\Load SalesTransaction Fact DF\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DollarCost]"
+                      lineageId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[DollarCost]" />
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DollarGrossProfit]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DollarGrossProfit"
+                      externalMetadataColumnId="Package\Load SalesTransaction Fact DF\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DollarGrossProfit]"
+                      lineageId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[DollarGrossProfit]" />
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ProductKey]"
+                      cachedDataType="i4"
+                      cachedName="ProductKey"
+                      externalMetadataColumnId="Package\Load SalesTransaction Fact DF\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductKey]"
+                      lineageId="Package\Load SalesTransaction Fact DF\Product Lookup.Outputs[Lookup Match Output].Columns[ProductKey]" />
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[StoreKey]"
+                      cachedDataType="i4"
+                      cachedName="StoreKey"
+                      externalMetadataColumnId="Package\Load SalesTransaction Fact DF\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StoreKey]"
+                      lineageId="Package\Load SalesTransaction Fact DF\Store Lookup.Outputs[Lookup Match Output].Columns[StoreKey]" />
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PromotionKey]"
+                      cachedDataType="i4"
+                      cachedName="PromotionKey"
+                      externalMetadataColumnId="Package\Load SalesTransaction Fact DF\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PromotionKey]"
+                      lineageId="Package\Load SalesTransaction Fact DF\Promotion Lookup.Outputs[Lookup Match Output].Columns[PromotionKey]" />
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DateKey]"
+                      cachedDataType="i4"
+                      cachedName="DateKey"
+                      externalMetadataColumnId="Package\Load SalesTransaction Fact DF\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateKey]"
+                      lineageId="Package\Load SalesTransaction Fact DF\Date Lookup.Outputs[Lookup Match Output].Columns[DateKey]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load SalesTransaction Fact DF\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateKey]"
+                      dataType="i4"
+                      name="DateKey" />
+                    <externalMetadataColumn
+                      refId="Package\Load SalesTransaction Fact DF\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductKey]"
+                      dataType="i4"
+                      name="ProductKey" />
+                    <externalMetadataColumn
+                      refId="Package\Load SalesTransaction Fact DF\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PromotionKey]"
+                      dataType="i4"
+                      name="PromotionKey" />
+                    <externalMetadataColumn
+                      refId="Package\Load SalesTransaction Fact DF\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StoreKey]"
+                      dataType="i4"
+                      name="StoreKey" />
+                    <externalMetadataColumn
+                      refId="Package\Load SalesTransaction Fact DF\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DollarSales]"
+                      dataType="numeric"
+                      name="DollarSales"
+                      precision="10"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Load SalesTransaction Fact DF\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UnitSales]"
+                      dataType="numeric"
+                      name="UnitSales"
+                      precision="10"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Load SalesTransaction Fact DF\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DollarCost]"
+                      dataType="numeric"
+                      name="DollarCost"
+                      precision="10"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Load SalesTransaction Fact DF\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DollarGrossProfit]"
+                      dataType="numeric"
+                      name="DollarGrossProfit"
+                      precision="10"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load SalesTransaction Fact DF\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load SalesTransaction Fact DF\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load SalesTransaction Fact DF\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load SalesTransaction Fact DF\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load SalesTransaction Fact DF\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load SalesTransaction Fact DF\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load SalesTransaction Fact DF\Product Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Product Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimProduct]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimProduct]) [refTable]
+where [refTable].[SKU] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ProductKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ProductName" dataType="DT_STR" length="30" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="ProductDescription" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="SKU" dataType="DT_STR" length="15" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Brand" dataType="DT_STR" length="30" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Category" dataType="DT_STR" length="15" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Department" dataType="DT_STR" length="15" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="ActiveInd" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Load SalesTransaction Fact DF\Derived Column.Outputs[Derived Column Output].Columns[dc.SKU]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load SalesTransaction Fact DF\Product Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[HANSEL.CMURetailSales]"
+                  connectionManagerRefId="Package.ConnectionManagers[HANSEL.CMURetailSales]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load SalesTransaction Fact DF\Product Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Product Lookup.Inputs[Lookup Input].Columns[dc.SKU]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="dc.SKU"
+                      lineageId="Package\Load SalesTransaction Fact DF\Derived Column.Outputs[Derived Column Output].Columns[dc.SKU]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">SKU</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load SalesTransaction Fact DF\Product Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Load SalesTransaction Fact DF\Product Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Product Lookup.Outputs[Lookup Match Output].Columns[ProductKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Load SalesTransaction Fact DF\Product Lookup.Outputs[Lookup Match Output].Columns[ProductKey]"
+                      name="ProductKey"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">ProductKey</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load SalesTransaction Fact DF\Product Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Load SalesTransaction Fact DF\Product Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load SalesTransaction Fact DF\Product Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Load SalesTransaction Fact DF\Product Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Product Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load SalesTransaction Fact DF\Product Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Product Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load SalesTransaction Fact DF\Product Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load SalesTransaction Fact DF\Promotion Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Promotion Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimPromotion]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimPromotion]) [refTable]
+where [refTable].[PromotionName] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="PromotionKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="PromotionName" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="PriceReductionType" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="AdType" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="DisplayType" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CouponType" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="AdMediaType" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="PromotionCost" dataType="DT_NUMERIC" length="0" precision="8" scale="2" codePage="0"/&gt;&lt;referenceColumn name="ActiveInd" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[PromotionName]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load SalesTransaction Fact DF\Promotion Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[HANSEL.CMURetailSales]"
+                  connectionManagerRefId="Package.ConnectionManagers[HANSEL.CMURetailSales]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load SalesTransaction Fact DF\Promotion Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Promotion Lookup.Inputs[Lookup Input].Columns[PromotionName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PromotionName"
+                      lineageId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[PromotionName]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">PromotionName</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load SalesTransaction Fact DF\Promotion Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Load SalesTransaction Fact DF\Promotion Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Promotion Lookup.Outputs[Lookup Match Output].Columns[PromotionKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Load SalesTransaction Fact DF\Promotion Lookup.Outputs[Lookup Match Output].Columns[PromotionKey]"
+                      name="PromotionKey"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">PromotionKey</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load SalesTransaction Fact DF\Promotion Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Load SalesTransaction Fact DF\Promotion Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load SalesTransaction Fact DF\Promotion Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Load SalesTransaction Fact DF\Promotion Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Promotion Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load SalesTransaction Fact DF\Promotion Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Promotion Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load SalesTransaction Fact DF\Promotion Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load SalesTransaction Fact DF\Store Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Store Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimStore]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimStore]) [refTable]
+where [refTable].[StoreName] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="StoreKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="StoreName" dataType="DT_STR" length="30" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="StoreNumber" dataType="DT_STR" length="10" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="City" dataType="DT_STR" length="30" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="State" dataType="DT_STR" length="10" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="SalesRegion" dataType="DT_STR" length="15" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="ActiveInd" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[StoreName]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load SalesTransaction Fact DF\Store Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[HANSEL.CMURetailSales]"
+                  connectionManagerRefId="Package.ConnectionManagers[HANSEL.CMURetailSales]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load SalesTransaction Fact DF\Store Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Store Lookup.Inputs[Lookup Input].Columns[StoreName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="StoreName"
+                      lineageId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[StoreName]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">StoreName</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load SalesTransaction Fact DF\Store Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Load SalesTransaction Fact DF\Store Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Store Lookup.Outputs[Lookup Match Output].Columns[StoreKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Load SalesTransaction Fact DF\Store Lookup.Outputs[Lookup Match Output].Columns[StoreKey]"
+                      name="StoreKey"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">StoreKey</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load SalesTransaction Fact DF\Store Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Load SalesTransaction Fact DF\Store Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load SalesTransaction Fact DF\Store Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Load SalesTransaction Fact DF\Store Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Store Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load SalesTransaction Fact DF\Store Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Store Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load SalesTransaction Fact DF\Store Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load SalesTransaction Fact DF\Union All"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Union All"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 1].Columns[CalendarDateChar]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CalendarDateChar"
+                      lineageId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDateChar]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[CalendarDateChar]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 1].Columns[SKU]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SKU"
+                      lineageId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[SKU]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[SKU]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 1].Columns[PromotionName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PromotionName"
+                      lineageId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[PromotionName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[PromotionName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 1].Columns[StoreName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="StoreName"
+                      lineageId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[StoreName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[StoreName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 1].Columns[DollarSales]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DollarSales"
+                      lineageId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[DollarSales]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[DollarSales]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 1].Columns[UnitSales]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="UnitSales"
+                      lineageId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[UnitSales]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[UnitSales]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 1].Columns[DollarCost]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DollarCost"
+                      lineageId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[DollarCost]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[DollarCost]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 1].Columns[DollarGrossProfit]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DollarGrossProfit"
+                      lineageId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[DollarGrossProfit]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[DollarGrossProfit]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 1].Columns[dc.SKU]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="dc.SKU"
+                      lineageId="Package\Load SalesTransaction Fact DF\Derived Column.Outputs[Derived Column Output].Columns[dc.SKU]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[dc.SKU]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 1].Columns[dc.CalendarDateChar]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="dc.CalendarDateChar"
+                      lineageId="Package\Load SalesTransaction Fact DF\Derived Column.Outputs[Derived Column Output].Columns[dc.CalendarDateChar]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[dc.CalendarDateChar]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 1].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      lineageId="Package\Load SalesTransaction Fact DF\Product Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[ErrorCode]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 1].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      lineageId="Package\Load SalesTransaction Fact DF\Product Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[ErrorColumn]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 2].Columns[CalendarDateChar]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CalendarDateChar"
+                      lineageId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDateChar]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[CalendarDateChar]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 2].Columns[SKU]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SKU"
+                      lineageId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[SKU]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[SKU]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 2].Columns[PromotionName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PromotionName"
+                      lineageId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[PromotionName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[PromotionName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 2].Columns[StoreName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="StoreName"
+                      lineageId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[StoreName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[StoreName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 2].Columns[DollarSales]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DollarSales"
+                      lineageId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[DollarSales]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[DollarSales]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 2].Columns[UnitSales]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="UnitSales"
+                      lineageId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[UnitSales]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[UnitSales]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 2].Columns[DollarCost]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DollarCost"
+                      lineageId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[DollarCost]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[DollarCost]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 2].Columns[DollarGrossProfit]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DollarGrossProfit"
+                      lineageId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[DollarGrossProfit]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[DollarGrossProfit]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 2].Columns[dc.SKU]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="dc.SKU"
+                      lineageId="Package\Load SalesTransaction Fact DF\Derived Column.Outputs[Derived Column Output].Columns[dc.SKU]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[dc.SKU]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 2].Columns[dc.CalendarDateChar]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="dc.CalendarDateChar"
+                      lineageId="Package\Load SalesTransaction Fact DF\Derived Column.Outputs[Derived Column Output].Columns[dc.CalendarDateChar]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[dc.CalendarDateChar]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 2].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      lineageId="Package\Load SalesTransaction Fact DF\Store Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[ErrorCode]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 2].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      lineageId="Package\Load SalesTransaction Fact DF\Store Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[ErrorColumn]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 3]"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 3].Columns[CalendarDateChar]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CalendarDateChar"
+                      lineageId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDateChar]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[CalendarDateChar]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 3].Columns[SKU]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SKU"
+                      lineageId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[SKU]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[SKU]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 3].Columns[PromotionName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PromotionName"
+                      lineageId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[PromotionName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[PromotionName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 3].Columns[StoreName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="StoreName"
+                      lineageId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[StoreName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[StoreName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 3].Columns[DollarSales]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DollarSales"
+                      lineageId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[DollarSales]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[DollarSales]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 3].Columns[UnitSales]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="UnitSales"
+                      lineageId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[UnitSales]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[UnitSales]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 3].Columns[DollarCost]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DollarCost"
+                      lineageId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[DollarCost]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[DollarCost]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 3].Columns[DollarGrossProfit]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DollarGrossProfit"
+                      lineageId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[DollarGrossProfit]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[DollarGrossProfit]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 3].Columns[dc.SKU]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="dc.SKU"
+                      lineageId="Package\Load SalesTransaction Fact DF\Derived Column.Outputs[Derived Column Output].Columns[dc.SKU]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[dc.SKU]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 3].Columns[dc.CalendarDateChar]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="dc.CalendarDateChar"
+                      lineageId="Package\Load SalesTransaction Fact DF\Derived Column.Outputs[Derived Column Output].Columns[dc.CalendarDateChar]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[dc.CalendarDateChar]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 3].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      lineageId="Package\Load SalesTransaction Fact DF\Promotion Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[ErrorCode]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 3].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      lineageId="Package\Load SalesTransaction Fact DF\Promotion Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[ErrorColumn]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 4]"
+                  hasSideEffects="true"
+                  name="Union All Input 4">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 4].Columns[CalendarDateChar]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CalendarDateChar"
+                      lineageId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDateChar]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[CalendarDateChar]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 4].Columns[SKU]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SKU"
+                      lineageId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[SKU]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[SKU]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 4].Columns[PromotionName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PromotionName"
+                      lineageId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[PromotionName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[PromotionName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 4].Columns[StoreName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="StoreName"
+                      lineageId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[StoreName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[StoreName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 4].Columns[DollarSales]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DollarSales"
+                      lineageId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[DollarSales]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[DollarSales]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 4].Columns[UnitSales]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="UnitSales"
+                      lineageId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[UnitSales]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[UnitSales]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 4].Columns[DollarCost]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DollarCost"
+                      lineageId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[DollarCost]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[DollarCost]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 4].Columns[DollarGrossProfit]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DollarGrossProfit"
+                      lineageId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output].Columns[DollarGrossProfit]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[DollarGrossProfit]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 4].Columns[dc.SKU]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="dc.SKU"
+                      lineageId="Package\Load SalesTransaction Fact DF\Derived Column.Outputs[Derived Column Output].Columns[dc.SKU]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[dc.SKU]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 4].Columns[dc.CalendarDateChar]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="dc.CalendarDateChar"
+                      lineageId="Package\Load SalesTransaction Fact DF\Derived Column.Outputs[Derived Column Output].Columns[dc.CalendarDateChar]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[dc.CalendarDateChar]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 4].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      lineageId="Package\Load SalesTransaction Fact DF\Date Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[ErrorCode]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 4].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      lineageId="Package\Load SalesTransaction Fact DF\Date Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[ErrorColumn]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 5]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 5">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[CalendarDateChar]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[CalendarDateChar]"
+                      name="CalendarDateChar" />
+                    <outputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[SKU]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[SKU]"
+                      name="SKU" />
+                    <outputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[PromotionName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[PromotionName]"
+                      name="PromotionName" />
+                    <outputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[StoreName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[StoreName]"
+                      name="StoreName" />
+                    <outputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[DollarSales]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[DollarSales]"
+                      name="DollarSales" />
+                    <outputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[UnitSales]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[UnitSales]"
+                      name="UnitSales" />
+                    <outputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[DollarCost]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[DollarCost]"
+                      name="DollarCost" />
+                    <outputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[DollarGrossProfit]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[DollarGrossProfit]"
+                      name="DollarGrossProfit" />
+                    <outputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[dc.SKU]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[dc.SKU]"
+                      name="dc.SKU" />
+                    <outputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[dc.CalendarDateChar]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[dc.CalendarDateChar]"
+                      name="dc.CalendarDateChar" />
+                    <outputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[ErrorCode]"
+                      name="ErrorCode" />
+                    <outputColumn
+                      refId="Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1].Columns[ErrorColumn]"
+                      name="ErrorColumn" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load SalesTransaction Fact DF.Paths[Derived Column Output]"
+              endId="Package\Load SalesTransaction Fact DF\Product Lookup.Inputs[Lookup Input]"
+              name="Derived Column Output"
+              startId="Package\Load SalesTransaction Fact DF\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Load SalesTransaction Fact DF.Paths[Flat File Source Output]"
+              endId="Package\Load SalesTransaction Fact DF\Derived Column.Inputs[Derived Column Input]"
+              name="Flat File Source Output"
+              startId="Package\Load SalesTransaction Fact DF\Flat File Source.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\Load SalesTransaction Fact DF.Paths[Lookup Error Output]"
+              endId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 1]"
+              name="Lookup Error Output"
+              startId="Package\Load SalesTransaction Fact DF\Product Lookup.Outputs[Lookup Error Output]" />
+            <path
+              refId="Package\Load SalesTransaction Fact DF.Paths[Lookup Error Output1]"
+              endId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 2]"
+              name="Lookup Error Output"
+              startId="Package\Load SalesTransaction Fact DF\Store Lookup.Outputs[Lookup Error Output]" />
+            <path
+              refId="Package\Load SalesTransaction Fact DF.Paths[Lookup Error Output2]"
+              endId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 3]"
+              name="Lookup Error Output"
+              startId="Package\Load SalesTransaction Fact DF\Promotion Lookup.Outputs[Lookup Error Output]" />
+            <path
+              refId="Package\Load SalesTransaction Fact DF.Paths[Lookup Error Output3]"
+              endId="Package\Load SalesTransaction Fact DF\Union All.Inputs[Union All Input 4]"
+              name="Lookup Error Output"
+              startId="Package\Load SalesTransaction Fact DF\Date Lookup.Outputs[Lookup Error Output]" />
+            <path
+              refId="Package\Load SalesTransaction Fact DF.Paths[Lookup Match Output]"
+              endId="Package\Load SalesTransaction Fact DF\Store Lookup.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Load SalesTransaction Fact DF\Product Lookup.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load SalesTransaction Fact DF.Paths[Lookup Match Output1]"
+              endId="Package\Load SalesTransaction Fact DF\Promotion Lookup.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Load SalesTransaction Fact DF\Store Lookup.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load SalesTransaction Fact DF.Paths[Lookup Match Output2]"
+              endId="Package\Load SalesTransaction Fact DF\Date Lookup.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Load SalesTransaction Fact DF\Promotion Lookup.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load SalesTransaction Fact DF.Paths[Lookup Match Output3]"
+              endId="Package\Load SalesTransaction Fact DF\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Lookup Match Output"
+              startId="Package\Load SalesTransaction Fact DF\Date Lookup.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load SalesTransaction Fact DF.Paths[Union All Output 1]"
+              endId="Package\Load SalesTransaction Fact DF\Multicast.Inputs[Multicast Input 1]"
+              name="Union All Output 1"
+              startId="Package\Load SalesTransaction Fact DF\Union All.Outputs[Union All Output 1]" />
+          </paths>
+        </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -7954,6 +10204,511 @@
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Load Time Dim DF\Insert Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Load SalesTransaction Fact DF">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Load SalesTransaction Fact DF\Flat File Source"
+          TopLeft="138,48" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Load SalesTransaction Fact DF\Product Lookup"
+          TopLeft="431,128" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Load SalesTransaction Fact DF\Derived Column"
+          TopLeft="137,162" />
+        <EdgeLayout
+          Id="Package\Load SalesTransaction Fact DF.Paths[Flat File Source Output]"
+          TopLeft="216,90">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,72"
+              Start="0,0"
+              End="0,64.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,64.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load SalesTransaction Fact DF.Paths[Derived Column Output]"
+          TopLeft="295,183">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="136,-34"
+              Start="0,0"
+              End="128.5,-34">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="64,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="64,0"
+                    Point2="68,0"
+                    Point3="68,-4" />
+                  <mssgle:LineSegment
+                    End="68,-30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="68,-30"
+                    Point2="68,-34"
+                    Point3="72,-34" />
+                  <mssgle:LineSegment
+                    End="128.5,-34" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="144,42"
+          Id="Package\Load SalesTransaction Fact DF\Store Lookup"
+          TopLeft="362,262" />
+        <EdgeLayout
+          Id="Package\Load SalesTransaction Fact DF.Paths[Lookup Match Output]"
+          TopLeft="484.333333333333,170">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-50.3333333333333,92"
+              Start="0,0"
+              End="-50.3333333333333,84.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.3604060913706" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.3604060913706"
+                    Point2="0,37.3604060913706"
+                    Point3="-4,37.3604060913706" />
+                  <mssgle:LineSegment
+                    End="-46.3333333333333,37.3604060913706" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-46.3333333333333,37.3604060913706"
+                    Point2="-50.3333333333333,37.3604060913706"
+                    Point3="-50.3333333333333,41.3604060913706" />
+                  <mssgle:LineSegment
+                    End="-50.3333333333333,84.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-73.3580533854167,42.3604060913706,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Load SalesTransaction Fact DF\Promotion Lookup"
+          TopLeft="126,287" />
+        <EdgeLayout
+          Id="Package\Load SalesTransaction Fact DF.Paths[Lookup Match Output1]"
+          TopLeft="362,283">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-68,25"
+              Start="0,0"
+              End="-60.5,25">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-30,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-30,0"
+                    Point2="-34,0"
+                    Point3="-34,4" />
+                  <mssgle:LineSegment
+                    End="-34,21" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-34,21"
+                    Point2="-34,25"
+                    Point3="-38,25" />
+                  <mssgle:LineSegment
+                    End="-60.5,25" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-82.19138671875,-17.609375,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="141,42"
+          Id="Package\Load SalesTransaction Fact DF\Date Lookup"
+          TopLeft="132,402" />
+        <EdgeLayout
+          Id="Package\Load SalesTransaction Fact DF.Paths[Lookup Match Output2]"
+          TopLeft="206.25,329">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,73"
+              Start="0,0"
+              End="0,65.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,65.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,26.9453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Load SalesTransaction Fact DF\OLE DB Destination"
+          TopLeft="114,560" />
+        <EdgeLayout
+          Id="Package\Load SalesTransaction Fact DF.Paths[Lookup Match Output3]"
+          TopLeft="202.5,444">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,116"
+              Start="0,0"
+              End="0,108.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,108.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,48.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="123,42"
+          Id="Package\Load SalesTransaction Fact DF\Union All"
+          TopLeft="627,436" />
+        <EdgeLayout
+          Id="Package\Load SalesTransaction Fact DF.Paths[Lookup Error Output]"
+          TopLeft="533.666666666667,170">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="183.583333333333,266"
+              Start="0,0"
+              End="183.583333333333,258.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,145.538092381524" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,145.538092381524"
+                    Point2="0,149.538092381524"
+                    Point3="4,149.538092381524" />
+                  <mssgle:LineSegment
+                    End="179.583333333333,149.538092381524" />
+                  <mssgle:CubicBezierSegment
+                    Point1="179.583333333333,149.538092381524"
+                    Point2="183.583333333333,149.538092381524"
+                    Point3="183.583333333333,153.538092381524" />
+                  <mssgle:LineSegment
+                    End="183.583333333333,258.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="45.9252799479167,154.538092381524,91.7327734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load SalesTransaction Fact DF.Paths[Lookup Error Output1]"
+          TopLeft="434,304">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="254.5,132"
+              Start="0,0"
+              End="254.5,124.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,62" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,62"
+                    Point2="0,66"
+                    Point3="4,66" />
+                  <mssgle:LineSegment
+                    End="250.5,66" />
+                  <mssgle:CubicBezierSegment
+                    Point1="250.5,66"
+                    Point2="254.5,66"
+                    Point3="254.5,70" />
+                  <mssgle:LineSegment
+                    End="254.5,124.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="81.38361328125,71,91.7327734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load SalesTransaction Fact DF.Paths[Lookup Error Output2]"
+          TopLeft="236.666666666667,329">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="423.083333333333,107"
+              Start="0,0"
+              End="423.083333333333,99.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.1054643938187" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,56.1054643938187"
+                    Point2="0,60.1054643938187"
+                    Point3="4,60.1054643938187" />
+                  <mssgle:LineSegment
+                    End="419.083333333333,60.1054643938187" />
+                  <mssgle:CubicBezierSegment
+                    Point1="419.083333333333,60.1054643938187"
+                    Point2="423.083333333333,60.1054643938187"
+                    Point3="423.083333333333,64.1054643938187" />
+                  <mssgle:LineSegment
+                    End="423.083333333333,99.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="165.675279947917,65.1054643938187,91.7327734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load SalesTransaction Fact DF.Paths[Lookup Error Output3]"
+          TopLeft="273,423">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="354,34"
+              Start="0,0"
+              End="346.5,34">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="173,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="173,0"
+                    Point2="177,0"
+                    Point3="177,4" />
+                  <mssgle:LineSegment
+                    End="177,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="177,30"
+                    Point2="177,34"
+                    Point3="181,34" />
+                  <mssgle:LineSegment
+                    End="346.5,34" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="131.13361328125,-17.609375,91.7327734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="123,42"
+          Id="Package\Load SalesTransaction Fact DF\Multicast"
+          TopLeft="566,566" />
+        <EdgeLayout
+          Id="Package\Load SalesTransaction Fact DF.Paths[Union All Output 1]"
+          TopLeft="688.5,478">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-61,88"
+              Start="0,0"
+              End="-61,80.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,40"
+                    Point2="0,44"
+                    Point3="-4,44" />
+                  <mssgle:LineSegment
+                    End="-57,44" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-57,44"
+                    Point2="-61,44"
+                    Point3="-61,48" />
+                  <mssgle:LineSegment
+                    End="-61,80.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-38.5,49,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load SalesTransaction Fact DF\Product Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimProduct]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load SalesTransaction Fact DF\Store Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimStore]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load SalesTransaction Fact DF\Promotion Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimPromotion]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load SalesTransaction Fact DF\Date Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimDate]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load SalesTransaction Fact DF\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
