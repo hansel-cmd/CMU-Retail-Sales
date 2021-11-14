@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31829.152
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "CMU Retail Sales", "CMU Retail Sales\CMU Retail Sales.dtproj", "{C7F97CB0-AA6C-4877-8CC9-DB0BD1705433}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C7F97CB0-AA6C-4877-8CC9-DB0BD1705433}.Development|Default.ActiveCfg = Development
+		{C7F97CB0-AA6C-4877-8CC9-DB0BD1705433}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B373FF51-07E9-4AC4-BD96-D62F53AB4FAE}
+	EndGlobalSection
+EndGlobal
