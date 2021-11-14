@@ -11,8 +11,8 @@
   DTS:LocaleID="13321"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="176"
-  DTS:VersionGUID="{B8F6AC28-C1E2-467F-B0E1-E28E494F1909}">
+  DTS:VersionBuild="205"
+  DTS:VersionGUID="{D9793B52-931D-4D2B-801C-0FC1D4B36B04}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -39,7 +39,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="DateId"
-              DTS:DTSID="{28F7097B-6768-445B-BBBC-04560AA371E9}"
+              DTS:DTSID="{FCB32FFF-2017-4CC9-B3BF-49DAF4C57E9D}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -48,7 +48,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="CalendarDate"
-              DTS:DTSID="{597FB0FD-4019-4274-B5EA-FB976B31AB02}"
+              DTS:DTSID="{4CB82894-198F-4157-A79C-EA9F981A433A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -57,7 +57,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="DayOfWeekName"
-              DTS:DTSID="{F6CE10AB-BB62-4941-AB1B-5C6A9D8F1444}"
+              DTS:DTSID="{5F64ACFB-4574-44E4-98F4-2A0A40FD81C3}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -66,7 +66,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="MonthEndDate"
-              DTS:DTSID="{0AFBB4FE-1D1D-420C-823A-8B52F735D430}"
+              DTS:DTSID="{2EC2BA82-34E5-431B-92AD-5B6151F69A32}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -75,7 +75,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Quarter"
-              DTS:DTSID="{E2A8E251-52BC-4E8C-9C24-4AA458D6A76E}"
+              DTS:DTSID="{93CC72A5-0650-4E7F-A450-CC2DB7CC3C9A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -84,7 +84,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="QuarterYear"
-              DTS:DTSID="{E764C98D-2C0A-44ED-AAC9-ED23FA65A5BF}"
+              DTS:DTSID="{998D10CA-3557-47D5-938A-4CA64DEA604B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -93,7 +93,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Year"
-              DTS:DTSID="{B202AECD-14EB-4AAE-BAB8-740FBBC12C30}"
+              DTS:DTSID="{F1002FE7-C812-4D97-B693-74C08166794C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -102,7 +102,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Flag"
-              DTS:DTSID="{6E218839-56EE-4218-BA79-0AA935D58B86}"
+              DTS:DTSID="{5F17BEBB-FB07-40E2-8B04-5ED9FBB7C730}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -3487,6 +3487,21 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\Load SalesTransaction Fact DF"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{06652255-E4B8-4DB6-8A3D-3804959C8B98}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load SalesTransaction Fact DF"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\Load Store Dim DF"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
@@ -4872,26 +4887,8 @@
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="CalendarDate"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
                       lineageId="Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]"
-                      name="CalendarDateChar"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">[REPLACE](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},"\"","")</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">REPLACE(CalendarDateChar,"\"","")</property>
-                      </properties>
-                    </inputColumn>
+                      name="CalendarDateChar" />
                     <inputColumn
                       refId="Package\Load Time Dim DF\Derived Column.Inputs[Derived Column Input].Columns[Year]"
                       cachedCodepage="1252"
@@ -4906,31 +4903,6 @@
                       cachedLength="50"
                       cachedName="Quarter"
                       lineageId="Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[Quarter]" />
-                    <inputColumn
-                      refId="Package\Load Time Dim DF\Derived Column.Inputs[Derived Column Input].Columns[QuarterYear]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="QuarterYear"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[QuarterYear]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">[REPLACE](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[QuarterYear]},"\"","")</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">REPLACE(QuarterYear,"\"","")</property>
-                      </properties>
-                    </inputColumn>
                     <inputColumn
                       refId="Package\Load Time Dim DF\Derived Column.Inputs[Derived Column Input].Columns[DayOfWeekName]"
                       cachedCodepage="1252"
@@ -4947,13 +4919,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">[REPLACE](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[DayOfWeekName]},"\"","")</property>
+                          name="Expression">[TRIM]([REPLACE](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[DayOfWeekName]},"\"",""))</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">REPLACE(DayOfWeekName,"\"","")</property>
+                          name="FriendlyExpression">TRIM(REPLACE(DayOfWeekName,"\"",""))</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
@@ -4981,13 +4953,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">(DT_I4)[SUBSTRING](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2)</property>
+                          name="Expression">(DT_I4)[SUBSTRING]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2)</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">(DT_I4)SUBSTRING(CalendarDateChar,2,2)</property>
+                          name="FriendlyExpression">(DT_I4)SUBSTRING((DT_STR,50,1252)CalendarDateChar,2,2)</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -5004,13 +4976,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">[SUBSTRING](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "01" ? "January" : [SUBSTRING](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "02" ? "February" : [SUBSTRING](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "03" ? "March" : [SUBSTRING](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "04" ? "April" : [SUBSTRING](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "05" ? "May" : [SUBSTRING](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "06" ? "June" : [SUBSTRING](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "07" ? "July" : [SUBSTRING](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "08" ? "August" : [SUBSTRING](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "09" ? "September" : [SUBSTRING](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "10" ? "October" : [SUBSTRING](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "11" ? "November" : [SUBSTRING](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "12" ? "December" : "Invalid Month Number"</property>
+                          name="Expression">[SUBSTRING]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "01" ? "January" : [SUBSTRING]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "02" ? "February" : [SUBSTRING]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "03" ? "March" : [SUBSTRING]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "04" ? "April" : [SUBSTRING]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "05" ? "May" : [SUBSTRING]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "06" ? "June" : [SUBSTRING]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "07" ? "July" : [SUBSTRING]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "08" ? "August" : [SUBSTRING]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "09" ? "September" : [SUBSTRING]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "10" ? "October" : [SUBSTRING]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "11" ? "November" : [SUBSTRING]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "12" ? "December" : "Invalid Month Number"</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">SUBSTRING(CalendarDateChar,2,2) == "01" ? "January" : SUBSTRING(CalendarDateChar,2,2) == "02" ? "February" : SUBSTRING(CalendarDateChar,2,2) == "03" ? "March" : SUBSTRING(CalendarDateChar,2,2) == "04" ? "April" : SUBSTRING(CalendarDateChar,2,2) == "05" ? "May" : SUBSTRING(CalendarDateChar,2,2) == "06" ? "June" : SUBSTRING(CalendarDateChar,2,2) == "07" ? "July" : SUBSTRING(CalendarDateChar,2,2) == "08" ? "August" : SUBSTRING(CalendarDateChar,2,2) == "09" ? "September" : SUBSTRING(CalendarDateChar,2,2) == "10" ? "October" : SUBSTRING(CalendarDateChar,2,2) == "11" ? "November" : SUBSTRING(CalendarDateChar,2,2) == "12" ? "December" : "Invalid Month Number"</property>
+                          name="FriendlyExpression">SUBSTRING((DT_STR,50,1252)CalendarDateChar,2,2) == "01" ? "January" : SUBSTRING((DT_STR,50,1252)CalendarDateChar,2,2) == "02" ? "February" : SUBSTRING((DT_STR,50,1252)CalendarDateChar,2,2) == "03" ? "March" : SUBSTRING((DT_STR,50,1252)CalendarDateChar,2,2) == "04" ? "April" : SUBSTRING((DT_STR,50,1252)CalendarDateChar,2,2) == "05" ? "May" : SUBSTRING((DT_STR,50,1252)CalendarDateChar,2,2) == "06" ? "June" : SUBSTRING((DT_STR,50,1252)CalendarDateChar,2,2) == "07" ? "July" : SUBSTRING((DT_STR,50,1252)CalendarDateChar,2,2) == "08" ? "August" : SUBSTRING((DT_STR,50,1252)CalendarDateChar,2,2) == "09" ? "September" : SUBSTRING((DT_STR,50,1252)CalendarDateChar,2,2) == "10" ? "October" : SUBSTRING((DT_STR,50,1252)CalendarDateChar,2,2) == "11" ? "November" : SUBSTRING((DT_STR,50,1252)CalendarDateChar,2,2) == "12" ? "December" : "Invalid Month Number"</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -5027,13 +4999,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">[SUBSTRING](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "01" ? "Jan" : [SUBSTRING](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "02" ? "Feb" : [SUBSTRING](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "03" ? "Mar" : [SUBSTRING](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "04" ? "Apr" : [SUBSTRING](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "05" ? "May" : [SUBSTRING](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "06" ? "Jun" : [SUBSTRING](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "07" ? "Jul" : [SUBSTRING](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "08" ? "Aug" : [SUBSTRING](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "09" ? "Sept" : [SUBSTRING](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "10" ? "Oct" : [SUBSTRING](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "11" ? "Nov" : [SUBSTRING](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "12" ? "Dec" : "Invalid Month Number"</property>
+                          name="Expression">[SUBSTRING]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "01" ? "Jan" : [SUBSTRING]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "02" ? "Feb" : [SUBSTRING]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "03" ? "Mar" : [SUBSTRING]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "04" ? "Apr" : [SUBSTRING]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "05" ? "May" : [SUBSTRING]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "06" ? "Jun" : [SUBSTRING]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "07" ? "Jul" : [SUBSTRING]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "08" ? "Aug" : [SUBSTRING]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "09" ? "Sept" : [SUBSTRING]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "10" ? "Oct" : [SUBSTRING]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "11" ? "Nov" : [SUBSTRING]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "12" ? "Dec" : "Invalid Month Number"</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">SUBSTRING(CalendarDateChar,2,2) == "01" ? "Jan" : SUBSTRING(CalendarDateChar,2,2) == "02" ? "Feb" : SUBSTRING(CalendarDateChar,2,2) == "03" ? "Mar" : SUBSTRING(CalendarDateChar,2,2) == "04" ? "Apr" : SUBSTRING(CalendarDateChar,2,2) == "05" ? "May" : SUBSTRING(CalendarDateChar,2,2) == "06" ? "Jun" : SUBSTRING(CalendarDateChar,2,2) == "07" ? "Jul" : SUBSTRING(CalendarDateChar,2,2) == "08" ? "Aug" : SUBSTRING(CalendarDateChar,2,2) == "09" ? "Sept" : SUBSTRING(CalendarDateChar,2,2) == "10" ? "Oct" : SUBSTRING(CalendarDateChar,2,2) == "11" ? "Nov" : SUBSTRING(CalendarDateChar,2,2) == "12" ? "Dec" : "Invalid Month Number"</property>
+                          name="FriendlyExpression">SUBSTRING((DT_STR,50,1252)CalendarDateChar,2,2) == "01" ? "Jan" : SUBSTRING((DT_STR,50,1252)CalendarDateChar,2,2) == "02" ? "Feb" : SUBSTRING((DT_STR,50,1252)CalendarDateChar,2,2) == "03" ? "Mar" : SUBSTRING((DT_STR,50,1252)CalendarDateChar,2,2) == "04" ? "Apr" : SUBSTRING((DT_STR,50,1252)CalendarDateChar,2,2) == "05" ? "May" : SUBSTRING((DT_STR,50,1252)CalendarDateChar,2,2) == "06" ? "Jun" : SUBSTRING((DT_STR,50,1252)CalendarDateChar,2,2) == "07" ? "Jul" : SUBSTRING((DT_STR,50,1252)CalendarDateChar,2,2) == "08" ? "Aug" : SUBSTRING((DT_STR,50,1252)CalendarDateChar,2,2) == "09" ? "Sept" : SUBSTRING((DT_STR,50,1252)CalendarDateChar,2,2) == "10" ? "Oct" : SUBSTRING((DT_STR,50,1252)CalendarDateChar,2,2) == "11" ? "Nov" : SUBSTRING((DT_STR,50,1252)CalendarDateChar,2,2) == "12" ? "Dec" : "Invalid Month Number"</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -5049,13 +5021,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">(DT_DATE)[TRIM]([REPLACE](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},"\"",""))</property>
+                          name="Expression">(DT_DATE)[TRIM]([REPLACE]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},"\"",""))</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">(DT_DATE)TRIM(REPLACE(CalendarDateChar,"\"",""))</property>
+                          name="FriendlyExpression">(DT_DATE)TRIM(REPLACE((DT_STR,50,1252)CalendarDateChar,"\"",""))</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -5072,13 +5044,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">[REPLACE]((([SUBSTRING](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "01" ? "January" : [SUBSTRING](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "02" ? "February" : [SUBSTRING](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "03" ? "March" : [SUBSTRING](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "04" ? "April" : [SUBSTRING](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "05" ? "May" : [SUBSTRING](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "06" ? "June" : [SUBSTRING](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "07" ? "July" : [SUBSTRING](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "08" ? "August" : [SUBSTRING](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "09" ? "September" : [SUBSTRING](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "10" ? "October" : [SUBSTRING](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "11" ? "November" : [SUBSTRING](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "12" ? "December" : "") + #{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[Year]}),"\"","")</property>
+                          name="Expression">[REPLACE]((([SUBSTRING]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "01" ? "January" : [SUBSTRING]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "02" ? "February" : [SUBSTRING]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "03" ? "March" : [SUBSTRING]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "04" ? "April" : [SUBSTRING]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "05" ? "May" : [SUBSTRING]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "06" ? "June" : [SUBSTRING]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "07" ? "July" : [SUBSTRING]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "08" ? "August" : [SUBSTRING]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "09" ? "September" : [SUBSTRING]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "10" ? "October" : [SUBSTRING]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "11" ? "November" : [SUBSTRING]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "12" ? "December" : "") + #{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[Year]}),"\"","")</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">REPLACE(((SUBSTRING(CalendarDateChar,2,2) == "01" ? "January" : SUBSTRING(CalendarDateChar,2,2) == "02" ? "February" : SUBSTRING(CalendarDateChar,2,2) == "03" ? "March" : SUBSTRING(CalendarDateChar,2,2) == "04" ? "April" : SUBSTRING(CalendarDateChar,2,2) == "05" ? "May" : SUBSTRING(CalendarDateChar,2,2) == "06" ? "June" : SUBSTRING(CalendarDateChar,2,2) == "07" ? "July" : SUBSTRING(CalendarDateChar,2,2) == "08" ? "August" : SUBSTRING(CalendarDateChar,2,2) == "09" ? "September" : SUBSTRING(CalendarDateChar,2,2) == "10" ? "October" : SUBSTRING(CalendarDateChar,2,2) == "11" ? "November" : SUBSTRING(CalendarDateChar,2,2) == "12" ? "December" : "") + Year),"\"","")</property>
+                          name="FriendlyExpression">REPLACE(((SUBSTRING((DT_STR,50,1252)CalendarDateChar,2,2) == "01" ? "January" : SUBSTRING((DT_STR,50,1252)CalendarDateChar,2,2) == "02" ? "February" : SUBSTRING((DT_STR,50,1252)CalendarDateChar,2,2) == "03" ? "March" : SUBSTRING((DT_STR,50,1252)CalendarDateChar,2,2) == "04" ? "April" : SUBSTRING((DT_STR,50,1252)CalendarDateChar,2,2) == "05" ? "May" : SUBSTRING((DT_STR,50,1252)CalendarDateChar,2,2) == "06" ? "June" : SUBSTRING((DT_STR,50,1252)CalendarDateChar,2,2) == "07" ? "July" : SUBSTRING((DT_STR,50,1252)CalendarDateChar,2,2) == "08" ? "August" : SUBSTRING((DT_STR,50,1252)CalendarDateChar,2,2) == "09" ? "September" : SUBSTRING((DT_STR,50,1252)CalendarDateChar,2,2) == "10" ? "October" : SUBSTRING((DT_STR,50,1252)CalendarDateChar,2,2) == "11" ? "November" : SUBSTRING((DT_STR,50,1252)CalendarDateChar,2,2) == "12" ? "December" : "") + Year),"\"","")</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -5139,13 +5111,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">[REPLACE]((([SUBSTRING](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "01" ? "Jan" : [SUBSTRING](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "02" ? "Feb" : [SUBSTRING](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "03" ? "Mar" : [SUBSTRING](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "04" ? "Apr" : [SUBSTRING](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "05" ? "May" : [SUBSTRING](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "06" ? "Jun" : [SUBSTRING](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "07" ? "Jul" : [SUBSTRING](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "08" ? "Aug" : [SUBSTRING](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "09" ? "Sept" : [SUBSTRING](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "10" ? "Oct" : [SUBSTRING](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "11" ? "Nov" : [SUBSTRING](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "12" ? "Dec" : "") + #{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[Year]}),"\"","")</property>
+                          name="Expression">[REPLACE]((([SUBSTRING]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "01" ? "Jan" : [SUBSTRING]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "02" ? "Feb" : [SUBSTRING]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "03" ? "Mar" : [SUBSTRING]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "04" ? "Apr" : [SUBSTRING]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "05" ? "May" : [SUBSTRING]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "06" ? "Jun" : [SUBSTRING]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "07" ? "Jul" : [SUBSTRING]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "08" ? "Aug" : [SUBSTRING]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "09" ? "Sept" : [SUBSTRING]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "10" ? "Oct" : [SUBSTRING]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "11" ? "Nov" : [SUBSTRING]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},2,2) == "12" ? "Dec" : "") + #{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[Year]}),"\"","")</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">REPLACE(((SUBSTRING(CalendarDateChar,2,2) == "01" ? "Jan" : SUBSTRING(CalendarDateChar,2,2) == "02" ? "Feb" : SUBSTRING(CalendarDateChar,2,2) == "03" ? "Mar" : SUBSTRING(CalendarDateChar,2,2) == "04" ? "Apr" : SUBSTRING(CalendarDateChar,2,2) == "05" ? "May" : SUBSTRING(CalendarDateChar,2,2) == "06" ? "Jun" : SUBSTRING(CalendarDateChar,2,2) == "07" ? "Jul" : SUBSTRING(CalendarDateChar,2,2) == "08" ? "Aug" : SUBSTRING(CalendarDateChar,2,2) == "09" ? "Sept" : SUBSTRING(CalendarDateChar,2,2) == "10" ? "Oct" : SUBSTRING(CalendarDateChar,2,2) == "11" ? "Nov" : SUBSTRING(CalendarDateChar,2,2) == "12" ? "Dec" : "") + Year),"\"","")</property>
+                          name="FriendlyExpression">REPLACE(((SUBSTRING((DT_STR,50,1252)CalendarDateChar,2,2) == "01" ? "Jan" : SUBSTRING((DT_STR,50,1252)CalendarDateChar,2,2) == "02" ? "Feb" : SUBSTRING((DT_STR,50,1252)CalendarDateChar,2,2) == "03" ? "Mar" : SUBSTRING((DT_STR,50,1252)CalendarDateChar,2,2) == "04" ? "Apr" : SUBSTRING((DT_STR,50,1252)CalendarDateChar,2,2) == "05" ? "May" : SUBSTRING((DT_STR,50,1252)CalendarDateChar,2,2) == "06" ? "Jun" : SUBSTRING((DT_STR,50,1252)CalendarDateChar,2,2) == "07" ? "Jul" : SUBSTRING((DT_STR,50,1252)CalendarDateChar,2,2) == "08" ? "Aug" : SUBSTRING((DT_STR,50,1252)CalendarDateChar,2,2) == "09" ? "Sept" : SUBSTRING((DT_STR,50,1252)CalendarDateChar,2,2) == "10" ? "Oct" : SUBSTRING((DT_STR,50,1252)CalendarDateChar,2,2) == "11" ? "Nov" : SUBSTRING((DT_STR,50,1252)CalendarDateChar,2,2) == "12" ? "Dec" : "") + Year),"\"","")</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -5183,13 +5155,36 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">(DT_I4)[SUBSTRING](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},5,([LEN](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]}) - ([FINDSTRING](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},"/",1) + 6)))</property>
+                          name="Expression">(DT_I4)[SUBSTRING]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},5,([LEN]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]}) - ([FINDSTRING]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},"/",1) + 6)))</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">(DT_I4)SUBSTRING(CalendarDateChar,5,(LEN(CalendarDateChar) - (FINDSTRING(CalendarDateChar,"/",1) + 6)))</property>
+                          name="FriendlyExpression">(DT_I4)SUBSTRING((DT_STR,50,1252)CalendarDateChar,5,(LEN((DT_STR,50,1252)CalendarDateChar) - (FINDSTRING((DT_STR,50,1252)CalendarDateChar,"/",1) + 6)))</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Time Dim DF\Derived Column.Outputs[Derived Column Output].Columns[Derived Column 1]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Load Time Dim DF\Derived Column.Outputs[Derived Column Output].Columns[Derived Column 1]"
+                      name="Derived Column 1"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,50)([REPLACE]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},"\"",""))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,50)(REPLACE((DT_STR,50,1252)CalendarDateChar,"\"",""))</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -5245,12 +5240,28 @@
                       cachedName="DayOfMonth"
                       lineageId="Package\Load Time Dim DF\Derived Column.Outputs[Derived Column Output].Columns[DayOfMonth]" />
                     <inputColumn
+                      refId="Package\Load Time Dim DF\Derived Column 1.Inputs[Derived Column Input].Columns[Quarter]"
+                      cachedDataType="i4"
+                      cachedName="Quarter"
+                      lineageId="Package\Load Time Dim DF\Derived Column.Outputs[Derived Column Output].Columns[Quarter]" />
+                    <inputColumn
+                      refId="Package\Load Time Dim DF\Derived Column 1.Inputs[Derived Column Input].Columns[Year]"
+                      cachedDataType="i4"
+                      cachedName="Year"
+                      lineageId="Package\Load Time Dim DF\Derived Column.Outputs[Derived Column Output].Columns[Year]" />
+                    <inputColumn
                       refId="Package\Load Time Dim DF\Derived Column 1.Inputs[Derived Column Input].Columns[DayOfWeekName]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="DayOfWeekName"
-                      lineageId="Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[DayOfWeekName]" />
+                      lineageId="Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[DayOfWeekName]"
+                      name="DayOfWeekName" />
+                    <inputColumn
+                      refId="Package\Load Time Dim DF\Derived Column 1.Inputs[Derived Column Input].Columns[MonthNumber]"
+                      cachedDataType="i4"
+                      cachedName="MonthNumber"
+                      lineageId="Package\Load Time Dim DF\Derived Column.Outputs[Derived Column Output].Columns[MonthNumber]" />
                     <inputColumn
                       refId="Package\Load Time Dim DF\Derived Column 1.Inputs[Derived Column Input].Columns[CalendarDate]"
                       cachedCodepage="1252"
@@ -5323,6 +5334,73 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
+                      refId="Package\Load Time Dim DF\Derived Column 1.Outputs[Derived Column Output].Columns[YearQuarter]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load Time Dim DF\Derived Column 1.Outputs[Derived Column Output].Columns[YearQuarter]"
+                      name="YearQuarter"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_I4)((DT_STR,30,1252)#{Package\Load Time Dim DF\Derived Column.Outputs[Derived Column Output].Columns[Year]} + (DT_STR,30,1252)#{Package\Load Time Dim DF\Derived Column.Outputs[Derived Column Output].Columns[Quarter]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_I4)((DT_STR,30,1252)[Derived Column].Year + (DT_STR,30,1252)[Derived Column].Quarter)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Time Dim DF\Derived Column 1.Outputs[Derived Column Output].Columns[MonthYearSort]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load Time Dim DF\Derived Column 1.Outputs[Derived Column Output].Columns[MonthYearSort]"
+                      name="MonthYearSort"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_I4)((DT_STR,30,1252)#{Package\Load Time Dim DF\Derived Column.Outputs[Derived Column Output].Columns[MonthNumber]} + (DT_STR,30,1252)#{Package\Load Time Dim DF\Derived Column.Outputs[Derived Column Output].Columns[Year]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_I4)((DT_STR,30,1252)MonthNumber + (DT_STR,30,1252)[Derived Column].Year)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Time Dim DF\Derived Column 1.Outputs[Derived Column Output].Columns[DerivedColumn.DayOfWeekName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Load Time Dim DF\Derived Column 1.Outputs[Derived Column Output].Columns[DerivedColumn.DayOfWeekName]"
+                      name="DerivedColumn.DayOfWeekName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,50)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[DayOfWeekName]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,50)DayOfWeekName</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
                       refId="Package\Load Time Dim DF\Derived Column 1.Outputs[Derived Column Output].Columns[LastDayOfMonthInd]"
                       dataType="i4"
                       errorOrTruncationOperation="Computation"
@@ -5335,13 +5413,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">[DATEDIFF]("dd",(DT_DBTIMESTAMP)[TRIM]([REPLACE](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[MonthEndDate]},"\"","")),(DT_DBTIMESTAMP)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]}) == 0 ? 1 : 0</property>
+                          name="Expression">[DATEDIFF]("dd",(DT_DBTIMESTAMP)[REPLACE](#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[MonthEndDate]},"\"",""),(DT_DBTIMESTAMP)[REPLACE]((DT_STR,50,1252)#{Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output].Columns[CalendarDate]},"\"","")) == 0 ? 1 : 0</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">DATEDIFF("dd",(DT_DBTIMESTAMP)TRIM(REPLACE(MonthEndDate,"\"","")),(DT_DBTIMESTAMP)CalendarDateChar) == 0 ? 1 : 0</property>
+                          name="FriendlyExpression">DATEDIFF("dd",(DT_DBTIMESTAMP)REPLACE(MonthEndDate,"\"",""),(DT_DBTIMESTAMP)REPLACE((DT_STR,50,1252)CalendarDateChar,"\"","")) == 0 ? 1 : 0</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -5365,6 +5443,86 @@
                       refId="Package\Load Time Dim DF\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\Load Time Dim DF\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Time Dim DF\Derived Column 2"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column 2"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load Time Dim DF\Derived Column 2.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Time Dim DF\Derived Column 2.Inputs[Derived Column Input].Columns[CalendarDate]"
+                      cachedDataType="date"
+                      cachedName="CalendarDate"
+                      lineageId="Package\Load Time Dim DF\Derived Column.Outputs[Derived Column Output].Columns[CalendarDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Time Dim DF\Derived Column 2.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Load Time Dim DF\Derived Column 2.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Time Dim DF\Derived Column 2.Outputs[Derived Column Output].Columns[dc.CalendarDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load Time Dim DF\Derived Column 2.Outputs[Derived Column Output].Columns[dc.CalendarDate]"
+                      name="dc.CalendarDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_DBTIMESTAMP)#{Package\Load Time Dim DF\Derived Column.Outputs[Derived Column Output].Columns[CalendarDate]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_DBTIMESTAMP)CalendarDate</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Time Dim DF\Derived Column 2.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Load Time Dim DF\Derived Column 2.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Time Dim DF\Derived Column 2.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Time Dim DF\Derived Column 2.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Time Dim DF\Derived Column 2.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Time Dim DF\Derived Column 2.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -5662,25 +5820,676 @@
               </outputs>
             </component>
             <component
-              refId="Package\Load Time Dim DF\Multicast"
-              componentClassID="Microsoft.Multicast"
-              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
-              name="Multicast">
+              refId="Package\Load Time Dim DF\Insert Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Insert Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimDate]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Time Dim DF\Insert Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[HANSEL.CMURetailSales]"
+                  connectionManagerRefId="Package.ConnectionManagers[HANSEL.CMURetailSales]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
               <inputs>
                 <input
-                  refId="Package\Load Time Dim DF\Multicast.Inputs[Multicast Input 1]"
-                  name="Multicast Input 1">
-                  <externalMetadataColumns />
+                  refId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].Columns[dc.CalendarDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="dc.CalendarDate"
+                      externalMetadataColumnId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[CalendarDate]"
+                      lineageId="Package\Load Time Dim DF\Derived Column 2.Outputs[Derived Column Output].Columns[dc.CalendarDate]" />
+                    <inputColumn
+                      refId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].Columns[Derived Column 1]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Derived Column 1"
+                      externalMetadataColumnId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[CalendarDateChar]"
+                      lineageId="Package\Load Time Dim DF\Derived Column.Outputs[Derived Column Output].Columns[Derived Column 1]" />
+                    <inputColumn
+                      refId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].Columns[MonthNumber]"
+                      cachedDataType="i4"
+                      cachedName="MonthNumber"
+                      externalMetadataColumnId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[MonthNumber]"
+                      lineageId="Package\Load Time Dim DF\Derived Column.Outputs[Derived Column Output].Columns[MonthNumber]" />
+                    <inputColumn
+                      refId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].Columns[MonthName]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="MonthName"
+                      externalMetadataColumnId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[MonthName]"
+                      lineageId="Package\Load Time Dim DF\Derived Column.Outputs[Derived Column Output].Columns[MonthName]" />
+                    <inputColumn
+                      refId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].Columns[MonthShortName]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="MonthShortName"
+                      externalMetadataColumnId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[MonthShortName]"
+                      lineageId="Package\Load Time Dim DF\Derived Column.Outputs[Derived Column Output].Columns[MonthShortName]" />
+                    <inputColumn
+                      refId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].Columns[MonthYearName]"
+                      cachedDataType="wstr"
+                      cachedLength="59"
+                      cachedName="MonthYearName"
+                      externalMetadataColumnId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[MonthYearName]"
+                      lineageId="Package\Load Time Dim DF\Derived Column.Outputs[Derived Column Output].Columns[MonthYearName]" />
+                    <inputColumn
+                      refId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].Columns[MonthYearShortName]"
+                      cachedDataType="wstr"
+                      cachedLength="54"
+                      cachedName="MonthYearShortName"
+                      externalMetadataColumnId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[MonthYearShortName]"
+                      lineageId="Package\Load Time Dim DF\Derived Column.Outputs[Derived Column Output].Columns[MonthYearShortName]" />
+                    <inputColumn
+                      refId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].Columns[MonthYearSort]"
+                      cachedDataType="i4"
+                      cachedName="MonthYearSort"
+                      externalMetadataColumnId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[MonthYearSort]"
+                      lineageId="Package\Load Time Dim DF\Derived Column 1.Outputs[Derived Column Output].Columns[MonthYearSort]" />
+                    <inputColumn
+                      refId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].Columns[Quarter]"
+                      cachedDataType="i4"
+                      cachedName="Quarter"
+                      externalMetadataColumnId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Quarter]"
+                      lineageId="Package\Load Time Dim DF\Derived Column.Outputs[Derived Column Output].Columns[Quarter]" />
+                    <inputColumn
+                      refId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].Columns[Year]"
+                      cachedDataType="i4"
+                      cachedName="Year"
+                      externalMetadataColumnId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Year]"
+                      lineageId="Package\Load Time Dim DF\Derived Column.Outputs[Derived Column Output].Columns[Year]" />
+                    <inputColumn
+                      refId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].Columns[YearQuarter]"
+                      cachedDataType="i4"
+                      cachedName="YearQuarter"
+                      externalMetadataColumnId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[YearQuarter]"
+                      lineageId="Package\Load Time Dim DF\Derived Column 1.Outputs[Derived Column Output].Columns[YearQuarter]" />
+                    <inputColumn
+                      refId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].Columns[DayOfWeek]"
+                      cachedDataType="i4"
+                      cachedName="DayOfWeek"
+                      externalMetadataColumnId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[DayOfWeek]"
+                      lineageId="Package\Load Time Dim DF\Derived Column.Outputs[Derived Column Output].Columns[DayOfWeek]" />
+                    <inputColumn
+                      refId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].Columns[DayOfWeekShortName]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="DayOfWeekShortName"
+                      externalMetadataColumnId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[DayOfWeekShortName]"
+                      lineageId="Package\Load Time Dim DF\Derived Column 1.Outputs[Derived Column Output].Columns[DayOfWeekShortName]" />
+                    <inputColumn
+                      refId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].Columns[DayOfMonth]"
+                      cachedDataType="i4"
+                      cachedName="DayOfMonth"
+                      externalMetadataColumnId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[DayOfMonth]"
+                      lineageId="Package\Load Time Dim DF\Derived Column.Outputs[Derived Column Output].Columns[DayOfMonth]" />
+                    <inputColumn
+                      refId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].Columns[LastDayOfMonthInd]"
+                      cachedDataType="i4"
+                      cachedName="LastDayOfMonthInd"
+                      externalMetadataColumnId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastDayOfMonthInd]"
+                      lineageId="Package\Load Time Dim DF\Derived Column 1.Outputs[Derived Column Output].Columns[LastDayOfMonthInd]" />
+                    <inputColumn
+                      refId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].Columns[DayOfYear]"
+                      cachedDataType="i4"
+                      cachedName="DayOfYear"
+                      externalMetadataColumnId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[DayOfYear]"
+                      lineageId="Package\Load Time Dim DF\Derived Column 1.Outputs[Derived Column Output].Columns[DayOfYear]" />
+                    <inputColumn
+                      refId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].Columns[DerivedColumn.DayOfWeekName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="DerivedColumn.DayOfWeekName"
+                      externalMetadataColumnId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[DayOfWeekName]"
+                      lineageId="Package\Load Time Dim DF\Derived Column 1.Outputs[Derived Column Output].Columns[DerivedColumn.DayOfWeekName]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateKey]"
+                      dataType="i4"
+                      name="DateKey" />
+                    <externalMetadataColumn
+                      refId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[CalendarDate]"
+                      dataType="dbTimeStamp"
+                      name="CalendarDate" />
+                    <externalMetadataColumn
+                      refId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[CalendarDateChar]"
+                      dataType="wstr"
+                      length="20"
+                      name="CalendarDateChar" />
+                    <externalMetadataColumn
+                      refId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[MonthNumber]"
+                      dataType="i4"
+                      name="MonthNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[MonthName]"
+                      dataType="wstr"
+                      length="50"
+                      name="MonthName" />
+                    <externalMetadataColumn
+                      refId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[MonthShortName]"
+                      dataType="wstr"
+                      length="50"
+                      name="MonthShortName" />
+                    <externalMetadataColumn
+                      refId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[MonthYearName]"
+                      dataType="wstr"
+                      length="50"
+                      name="MonthYearName" />
+                    <externalMetadataColumn
+                      refId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[MonthYearShortName]"
+                      dataType="wstr"
+                      length="50"
+                      name="MonthYearShortName" />
+                    <externalMetadataColumn
+                      refId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[MonthYearSort]"
+                      dataType="i4"
+                      name="MonthYearSort" />
+                    <externalMetadataColumn
+                      refId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Quarter]"
+                      dataType="i4"
+                      name="Quarter" />
+                    <externalMetadataColumn
+                      refId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Year]"
+                      dataType="i4"
+                      name="Year" />
+                    <externalMetadataColumn
+                      refId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[YearQuarter]"
+                      dataType="i4"
+                      name="YearQuarter" />
+                    <externalMetadataColumn
+                      refId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[DayOfWeek]"
+                      dataType="i4"
+                      name="DayOfWeek" />
+                    <externalMetadataColumn
+                      refId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[DayOfWeekName]"
+                      dataType="wstr"
+                      length="50"
+                      name="DayOfWeekName" />
+                    <externalMetadataColumn
+                      refId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[DayOfWeekShortName]"
+                      dataType="wstr"
+                      length="50"
+                      name="DayOfWeekShortName" />
+                    <externalMetadataColumn
+                      refId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[DayOfMonth]"
+                      dataType="i4"
+                      name="DayOfMonth" />
+                    <externalMetadataColumn
+                      refId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastDayOfMonthInd]"
+                      dataType="i4"
+                      name="LastDayOfMonthInd" />
+                    <externalMetadataColumn
+                      refId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[DayOfYear]"
+                      dataType="i4"
+                      name="DayOfYear" />
+                  </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Load Time Dim DF\Multicast.Outputs[Multicast Output 1]"
-                  dangling="true"
-                  deleteOutputOnPathDetached="true"
-                  name="Multicast Output 1"
-                  synchronousInputId="Package\Load Time Dim DF\Multicast.Inputs[Multicast Input 1]">
+                  refId="Package\Load Time Dim DF\Insert Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Time Dim DF\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Time Dim DF\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Time Dim DF\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Time Dim DF\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Time Dim DF\Slowly Changing Dimension"
+              componentClassID="Microsoft.SCD"
+              contactInfo="Slowly Changing Dimension;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Updates a SQL Server Analysis Services data warehouse dimension. Update dimension records that are already present and  insert dimension records that aren't. For example, update the DimProduct table of the AdventureWorksDW OLAP database with data from the Products table in the AdventureWorks OLTP database."
+              name="Slowly Changing Dimension"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SELECT statement used to create a schema rowset."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [CalendarDateChar], [DayOfMonth], [DayOfWeek], [DayOfWeekShortName], [DayOfYear], [LastDayOfMonthInd], [MonthName], [MonthNumber], [MonthShortName], [MonthYearName], [MonthYearShortName], [MonthYearSort], [Quarter], [Year], [YearQuarter] FROM [dbo].[DimDate]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
+                  name="CurrentRowWhere"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether historical attribute updates are directed to the transformation output for changing attribute updates."
+                  name="UpdateChangingAttributeHistory">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when columns with fixed attributes contain changes."
+                  name="FailOnFixedAttributeChange">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the column name for the inferred member."
+                  name="InferredMemberIndicator"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether inferred member updates are detected."
+                  name="EnableInferredMember">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when a lookup of an existing record fails."
+                  name="FailOnLookupFailure">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies that all rows in the input are new or the transformation detects the change type."
+                  name="IncomingRowChangeType"
+                  typeConverter="IncomingRowChangeType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Time Dim DF\Slowly Changing Dimension.Connections[LookupConnection]"
+                  connectionManagerID="Package.ConnectionManagers[HANSEL.CMURetailSales]"
+                  connectionManagerRefId="Package.ConnectionManagers[HANSEL.CMURetailSales]"
+                  description="Defines the connection to use for lookups in the dimension table"
+                  name="LookupConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+                  name="Slowly Changing Dimension Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Derived Column 1]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Derived Column 1"
+                      externalMetadataColumnId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[CalendarDateChar]"
+                      lineageId="Package\Load Time Dim DF\Derived Column.Outputs[Derived Column Output].Columns[Derived Column 1]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[DayOfMonth]"
+                      cachedDataType="i4"
+                      cachedName="DayOfMonth"
+                      externalMetadataColumnId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[DayOfMonth]"
+                      lineageId="Package\Load Time Dim DF\Derived Column.Outputs[Derived Column Output].Columns[DayOfMonth]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[DayOfWeek]"
+                      cachedDataType="i4"
+                      cachedName="DayOfWeek"
+                      externalMetadataColumnId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[DayOfWeek]"
+                      lineageId="Package\Load Time Dim DF\Derived Column.Outputs[Derived Column Output].Columns[DayOfWeek]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[DayOfWeekShortName]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="DayOfWeekShortName"
+                      externalMetadataColumnId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[DayOfWeekShortName]"
+                      lineageId="Package\Load Time Dim DF\Derived Column 1.Outputs[Derived Column Output].Columns[DayOfWeekShortName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[DayOfYear]"
+                      cachedDataType="i4"
+                      cachedName="DayOfYear"
+                      externalMetadataColumnId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[DayOfYear]"
+                      lineageId="Package\Load Time Dim DF\Derived Column 1.Outputs[Derived Column Output].Columns[DayOfYear]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[LastDayOfMonthInd]"
+                      cachedDataType="i4"
+                      cachedName="LastDayOfMonthInd"
+                      externalMetadataColumnId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[LastDayOfMonthInd]"
+                      lineageId="Package\Load Time Dim DF\Derived Column 1.Outputs[Derived Column Output].Columns[LastDayOfMonthInd]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[MonthName]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="MonthName"
+                      externalMetadataColumnId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[MonthName]"
+                      lineageId="Package\Load Time Dim DF\Derived Column.Outputs[Derived Column Output].Columns[MonthName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[MonthNumber]"
+                      cachedDataType="i4"
+                      cachedName="MonthNumber"
+                      externalMetadataColumnId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[MonthNumber]"
+                      lineageId="Package\Load Time Dim DF\Derived Column.Outputs[Derived Column Output].Columns[MonthNumber]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[MonthShortName]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="MonthShortName"
+                      externalMetadataColumnId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[MonthShortName]"
+                      lineageId="Package\Load Time Dim DF\Derived Column.Outputs[Derived Column Output].Columns[MonthShortName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[MonthYearName]"
+                      cachedDataType="wstr"
+                      cachedLength="59"
+                      cachedName="MonthYearName"
+                      externalMetadataColumnId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[MonthYearName]"
+                      lineageId="Package\Load Time Dim DF\Derived Column.Outputs[Derived Column Output].Columns[MonthYearName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[MonthYearShortName]"
+                      cachedDataType="wstr"
+                      cachedLength="54"
+                      cachedName="MonthYearShortName"
+                      externalMetadataColumnId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[MonthYearShortName]"
+                      lineageId="Package\Load Time Dim DF\Derived Column.Outputs[Derived Column Output].Columns[MonthYearShortName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[MonthYearSort]"
+                      cachedDataType="i4"
+                      cachedName="MonthYearSort"
+                      externalMetadataColumnId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[MonthYearSort]"
+                      lineageId="Package\Load Time Dim DF\Derived Column 1.Outputs[Derived Column Output].Columns[MonthYearSort]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Quarter]"
+                      cachedDataType="i4"
+                      cachedName="Quarter"
+                      externalMetadataColumnId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Quarter]"
+                      lineageId="Package\Load Time Dim DF\Derived Column.Outputs[Derived Column Output].Columns[Quarter]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Year]"
+                      cachedDataType="i4"
+                      cachedName="Year"
+                      externalMetadataColumnId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Year]"
+                      lineageId="Package\Load Time Dim DF\Derived Column.Outputs[Derived Column Output].Columns[Year]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[YearQuarter]"
+                      cachedDataType="i4"
+                      cachedName="YearQuarter"
+                      externalMetadataColumnId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[YearQuarter]"
+                      lineageId="Package\Load Time Dim DF\Derived Column 1.Outputs[Derived Column Output].Columns[YearQuarter]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">4</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[CalendarDateChar]"
+                      dataType="wstr"
+                      length="20"
+                      name="CalendarDateChar" />
+                    <externalMetadataColumn
+                      refId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[DayOfMonth]"
+                      dataType="i4"
+                      name="DayOfMonth" />
+                    <externalMetadataColumn
+                      refId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[DayOfWeek]"
+                      dataType="i4"
+                      name="DayOfWeek" />
+                    <externalMetadataColumn
+                      refId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[DayOfWeekShortName]"
+                      dataType="wstr"
+                      length="50"
+                      name="DayOfWeekShortName" />
+                    <externalMetadataColumn
+                      refId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[DayOfYear]"
+                      dataType="i4"
+                      name="DayOfYear" />
+                    <externalMetadataColumn
+                      refId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[LastDayOfMonthInd]"
+                      dataType="i4"
+                      name="LastDayOfMonthInd" />
+                    <externalMetadataColumn
+                      refId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[MonthName]"
+                      dataType="wstr"
+                      length="50"
+                      name="MonthName" />
+                    <externalMetadataColumn
+                      refId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[MonthNumber]"
+                      dataType="i4"
+                      name="MonthNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[MonthShortName]"
+                      dataType="wstr"
+                      length="50"
+                      name="MonthShortName" />
+                    <externalMetadataColumn
+                      refId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[MonthYearName]"
+                      dataType="wstr"
+                      length="50"
+                      name="MonthYearName" />
+                    <externalMetadataColumn
+                      refId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[MonthYearShortName]"
+                      dataType="wstr"
+                      length="50"
+                      name="MonthYearShortName" />
+                    <externalMetadataColumn
+                      refId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[MonthYearSort]"
+                      dataType="i4"
+                      name="MonthYearSort" />
+                    <externalMetadataColumn
+                      refId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Quarter]"
+                      dataType="i4"
+                      name="Quarter" />
+                    <externalMetadataColumn
+                      refId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Year]"
+                      dataType="i4"
+                      name="Year" />
+                    <externalMetadataColumn
+                      refId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[YearQuarter]"
+                      dataType="i4"
+                      name="YearQuarter" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Time Dim DF\Slowly Changing Dimension.Outputs[Unchanged Output]"
+                  description="Unchanged rows"
+                  exclusionGroup="1"
+                  name="Unchanged Output"
+                  synchronousInputId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Time Dim DF\Slowly Changing Dimension.Outputs[New Output]"
+                  description="New rows"
+                  exclusionGroup="1"
+                  name="New Output"
+                  synchronousInputId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Time Dim DF\Slowly Changing Dimension.Outputs[Fixed Attribute Output]"
+                  description="Rows with changes in columns tagged FixedAttribute"
+                  exclusionGroup="1"
+                  name="Fixed Attribute Output"
+                  synchronousInputId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Time Dim DF\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]"
+                  description="These rows contain new information for ChangingAttribute (Type 1) column changes"
+                  exclusionGroup="1"
+                  name="Changing Attribute Updates Output"
+                  synchronousInputId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Time Dim DF\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]"
+                  description="HistoricalAttribute (Type 2) changes result in these new rows"
+                  exclusionGroup="2"
+                  name="Historical Attribute Inserts Output"
+                  synchronousInputId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Time Dim DF\Slowly Changing Dimension.Outputs[Inferred Member Updates Output]"
+                  description="Information to update unpopulated initial dimension row"
+                  exclusionGroup="1"
+                  name="Inferred Member Updates Output"
+                  synchronousInputId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
                   <externalMetadataColumns />
                 </output>
               </outputs>
@@ -5694,14 +6503,24 @@
               startId="Package\Load Time Dim DF\Derived Column.Outputs[Derived Column Output]" />
             <path
               refId="Package\Load Time Dim DF.Paths[Derived Column Output1]"
-              endId="Package\Load Time Dim DF\Multicast.Inputs[Multicast Input 1]"
+              endId="Package\Load Time Dim DF\Derived Column 2.Inputs[Derived Column Input]"
               name="Derived Column Output"
               startId="Package\Load Time Dim DF\Derived Column 1.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Load Time Dim DF.Paths[Derived Column Output2]"
+              endId="Package\Load Time Dim DF\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+              name="Derived Column Output"
+              startId="Package\Load Time Dim DF\Derived Column 2.Outputs[Derived Column Output]" />
             <path
               refId="Package\Load Time Dim DF.Paths[Flat File Source Output]"
               endId="Package\Load Time Dim DF\Derived Column.Inputs[Derived Column Input]"
               name="Flat File Source Output"
               startId="Package\Load Time Dim DF\Flat File Source.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\Load Time Dim DF.Paths[New Output]"
+              endId="Package\Load Time Dim DF\Insert Destination.Inputs[OLE DB Destination Input]"
+              name="New Output"
+              startId="Package\Load Time Dim DF\Slowly Changing Dimension.Outputs[New Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -5718,7 +6537,7 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
           Size="184,42"
           Id="Package\Load Product Dim DF"
@@ -5734,7 +6553,11 @@
         <NodeLayout
           Size="171,42"
           Id="Package\Load Time Dim DF"
-          TopLeft="80,284" />
+          TopLeft="26,248" />
+        <NodeLayout
+          Size="233,42"
+          Id="Package\Load SalesTransaction Fact DF"
+          TopLeft="48.5,329.5" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -6857,45 +7680,29 @@
     design-time-name="Package\Load Time Dim DF">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="123,42"
-          Id="Package\Load Time Dim DF\Multicast"
-          TopLeft="326,411" />
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="156,42"
           Id="Package\Load Time Dim DF\Flat File Source"
-          TopLeft="209,78" />
+          TopLeft="35.5,5.5" />
         <NodeLayout
           Size="158,42"
           Id="Package\Load Time Dim DF\Derived Column"
-          TopLeft="312,173" />
+          TopLeft="34.5,107.5" />
         <EdgeLayout
           Id="Package\Load Time Dim DF.Paths[Flat File Source Output]"
-          TopLeft="287,120">
+          TopLeft="113.5,47.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="104,53"
+              EndConnector="0,60"
               Start="0,0"
-              End="104,45.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,22.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,22.5"
-                    Point2="0,26.5"
-                    Point3="4,26.5" />
-                  <mssgle:LineSegment
-                    End="100,26.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="100,26.5"
-                    Point2="104,26.5"
-                    Point3="104,30.5" />
-                  <mssgle:LineSegment
-                    End="104,45.5" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6907,33 +7714,51 @@
         <NodeLayout
           Size="167,42"
           Id="Package\Load Time Dim DF\Derived Column 1"
-          TopLeft="136,306" />
+          TopLeft="30,209.5" />
         <EdgeLayout
           Id="Package\Load Time Dim DF.Paths[Derived Column Output]"
-          TopLeft="391,215">
+          TopLeft="113.5,149.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-171.5,91"
+              EndConnector="0,60"
               Start="0,0"
-              End="-171.5,83.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,41.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,41.5"
-                    Point2="0,45.5"
-                    Point3="-4,45.5" />
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="216,42"
+          Id="Package\Load Time Dim DF\Slowly Changing Dimension"
+          TopLeft="5.50000000000006,413.5" />
+        <NodeLayout
+          Size="167,42"
+          Id="Package\Load Time Dim DF\Derived Column 2"
+          TopLeft="30,311.5" />
+        <EdgeLayout
+          Id="Package\Load Time Dim DF.Paths[Derived Column Output1]"
+          TopLeft="113.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="-167.5,45.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-167.5,45.5"
-                    Point2="-171.5,45.5"
-                    Point3="-171.5,49.5" />
-                  <mssgle:LineSegment
-                    End="-171.5,83.5" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6943,43 +7768,202 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load Time Dim DF.Paths[Derived Column Output1]"
-          TopLeft="219.5,348">
+          Id="Package\Load Time Dim DF.Paths[Derived Column Output2]"
+          TopLeft="113.5,353.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="168,63"
+              EndConnector="0,60"
               Start="0,0"
-              End="168,55.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,27.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,27.5"
-                    Point2="0,31.5"
-                    Point3="4,31.5" />
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="165,42"
+          Id="Package\Load Time Dim DF\Insert Destination"
+          TopLeft="31.0000000000001,515.5" />
+        <EdgeLayout
+          Id="Package\Load Time Dim DF.Paths[New Output]"
+          TopLeft="113.5,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="164,31.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="164,31.5"
-                    Point2="168,31.5"
-                    Point3="168,35.5" />
-                  <mssgle:LineSegment
-                    End="168,55.5" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="76,36.5,16,16"
+              BoundingBox="-27.09138671875,20.533203125,54.1827734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Time Dim DF\Slowly Changing Dimension">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionID&gt;{E65BC857-A5F9-48D7-9969-135B09434B28}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[DimDate]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Derived Column 2.Outputs[Derived Column Output].Columns[dc.CalendarDate]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;CalendarDate&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Derived Column.Outputs[Derived Column Output].Columns[Derived Column 1]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;CalendarDateChar&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Derived Column.Outputs[Derived Column Output].Columns[DayOfMonth]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;DayOfMonth&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Derived Column.Outputs[Derived Column Output].Columns[DayOfWeek]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;DayOfWeek&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Flat File Source.Outputs[Flat File Source Output].Columns[DayOfWeekName]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;DayOfWeekName&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Derived Column 1.Outputs[Derived Column Output].Columns[DayOfWeekShortName]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;DayOfWeekShortName&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Derived Column 1.Outputs[Derived Column Output].Columns[DayOfYear]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;DayOfYear&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Derived Column 1.Outputs[Derived Column Output].Columns[LastDayOfMonthInd]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;LastDayOfMonthInd&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Derived Column.Outputs[Derived Column Output].Columns[MonthName]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;MonthName&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Derived Column.Outputs[Derived Column Output].Columns[MonthNumber]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;MonthNumber&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Derived Column.Outputs[Derived Column Output].Columns[MonthShortName]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;MonthShortName&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Derived Column.Outputs[Derived Column Output].Columns[MonthYearName]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;MonthYearName&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Derived Column.Outputs[Derived Column Output].Columns[MonthYearShortName]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;MonthYearShortName&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Derived Column 1.Outputs[Derived Column Output].Columns[MonthYearSort]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;MonthYearSort&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Derived Column.Outputs[Derived Column Output].Columns[Quarter]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Quarter&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Derived Column.Outputs[Derived Column Output].Columns[Year]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Year&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Derived Column 1.Outputs[Derived Column Output].Columns[YearQuarter]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;YearQuarter&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;true&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn /&gt;
+  &lt;EndDateColumn /&gt;
+  &lt;DateVariable /&gt;
+  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Time Dim DF\Insert Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
